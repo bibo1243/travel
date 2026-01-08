@@ -24,6 +24,10 @@ body {
     font-family: 'Outfit', 'Noto Sans TC', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-light);
+    font-size: 18px;
+    /* 放大基礎字體 */
+    line-height: 1.6;
+    /* 增加行距 */
     background-image:
         radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
         radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
@@ -720,8 +724,8 @@ body {
 
 .activity-icon-large {
     flex-shrink: 0;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -760,7 +764,7 @@ body {
 }
 
 .card-title.text-layout {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
