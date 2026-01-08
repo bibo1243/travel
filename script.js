@@ -128,10 +128,10 @@ const itineraries = {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Elements
-    const selectionView = document.getElementById('selection-view');
+    // const selectionView = document.getElementById('selection-view'); // Removed
     const comparisonView = document.getElementById('comparison-view');
-    const startBtn = document.getElementById('start-compare-btn');
-    const backBtn = document.getElementById('back-to-selection');
+    // const startBtn = document.getElementById('start-compare-btn'); // Removed
+    // const backBtn = document.getElementById('back-to-selection'); // Removed
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.querySelector('.lightbox-img');
     const closeLightbox = document.querySelector('.close-lightbox');
@@ -140,33 +140,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    // Navigation
-    startBtn.addEventListener('click', () => {
-        selectionView.classList.remove('active');
-        selectionView.classList.add('hidden');
+    // Initialize View Directly
+    renderComparison();
+    renderBudget();
+    renderItinerary();
 
-        setTimeout(() => {
-            selectionView.style.display = 'none';
-            comparisonView.style.display = 'block';
-            void comparisonView.offsetWidth;
-            comparisonView.classList.remove('hidden');
-            comparisonView.classList.add('active');
-            renderComparison();
-            renderBudget();
-            renderItinerary();
-        }, 500);
+    // Lightbox Logic (Kept for future use if needed, though triggers are removed)
+    window.openImage = (filename) => {
+        lightboxImg.src = filename;
+        lightbox.classList.remove('hidden');
+    };
+    closeLightbox.addEventListener('click', () => lightbox.classList.add('hidden'));
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.add('hidden');
     });
 
-    backBtn.addEventListener('click', () => {
-        comparisonView.classList.remove('active');
-        comparisonView.classList.add('hidden');
-        setTimeout(() => {
-            comparisonView.style.display = 'none';
-            selectionView.style.display = 'block';
-            void selectionView.offsetWidth;
-            selectionView.classList.remove('hidden');
-            selectionView.classList.add('active');
-        }, 500);
+    // Tab Switching
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(`${btn.dataset.tab}-tab`).classList.add('active');
+        });
     });
 
     // Tab Switching

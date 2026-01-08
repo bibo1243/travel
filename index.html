@@ -25,66 +25,9 @@
         </header>
 
         <main>
-            <!-- Hero Section / Itinerary Selection -->
-            <section id="selection-view" class="view-section active">
-                <h2 class="section-title">請選擇評估中的行程方案</h2>
-                <div class="cards-container">
-                    <!-- Alishan Card -->
-                    <div class="trip-card" data-trip="alishan">
-                        <div class="card-image alishan-bg">
-                            <div class="overlay"></div>
-                            <h3>阿里山森林三日遊</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="tags">
-                                <span class="tag nature">🌲 純粹自然</span>
-                                <span class="tag mountain">⛰️ 高山森呼吸</span>
-                            </div>
-                            <p>體驗雲霧繚繞的神木群，搭乘登山小火車，享受高山茶園的靜謐氛圍。</p>
-                            <div class="preview-files">
-                                <div class="file-preview" onclick="openImage('阿里山行程1.png')"><i
-                                        class="fa-regular fa-image"></i> 行程表 A</div>
-                                <div class="file-preview" onclick="openImage('阿里山行程2.png')"><i
-                                        class="fa-regular fa-image"></i> 行程表 B</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Taitung Card -->
-                    <div class="trip-card" data-trip="taitung">
-                        <div class="card-image taitung-bg">
-                            <div class="overlay"></div>
-                            <h3>台東東海岸三日遊</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="tags">
-                                <span class="tag ocean">🌊 太平洋風光</span>
-                                <span class="tag culture">🚲 慢活體驗</span>
-                            </div>
-                            <p>徜徉在花東縱谷的遼闊，感受太平洋的風，體驗原民文化與無敵海景。</p>
-                            <div class="preview-files">
-                                <div class="file-preview" onclick="openImage('台東三日遊1.png')"><i
-                                        class="fa-regular fa-image"></i> 行程表 A</div>
-                                <div class="file-preview" onclick="openImage('台東三日遊2.png')"><i
-                                        class="fa-regular fa-image"></i> 行程表 B</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="action-area">
-                    <button id="start-compare-btn" class="cta-button">
-                        <i class="fa-solid fa-scale-balanced"></i> 進入比較模式
-                    </button>
-                    <p class="hint-text">* 基於上傳之行程表進行智能分析</p>
-                </div>
-            </section>
-
-            <!-- Comparison View (Hidden by default) -->
-            <section id="comparison-view" class="view-section hidden">
-                <div class="nav-back" id="back-to-selection">
-                    <i class="fa-solid fa-arrow-left"></i> 返回行程總覽
-                </div>
+            <!-- Comparison View (Active by default) -->
+            <section id="comparison-view" class="view-section active">
+                <!-- Removed Back Button -->
 
                 <h2 class="section-title">行程深度分析與比較</h2>
 
