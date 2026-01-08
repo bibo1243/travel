@@ -60,71 +60,7 @@ const totalBudget = {
     taiPerPerson: 8999
 };
 
-const itineraries = {
-    taitung: {
-        title: '台東三日遊',
-        period: '115年3-5月 平日',
-        day1: [
-            { time: '07:50~08:00', activity: '指定地點集合報到', note: '預計 08:00 發車' },
-            { time: '08:00~10:30', activity: '車程時間', note: '' },
-            { time: '10:30~11:30', activity: '農業科技園區觀賞水族展示廳', note: '' },
-            { time: '12:00~13:00', activity: '午餐時間', note: '' },
-            { time: '13:00~15:00', activity: '車程時間', note: '' },
-            { time: '15:00~15:40', activity: '大武之心南迴驛站', note: '' },
-            { time: '17:00~18:00', activity: '晚餐時間', note: '' },
-            { time: '18:30~19:00', activity: '辦理進房入住，小憩片刻', note: '住宿' },
-            { time: '20:00~22:00', activity: '自由活動，享用飯店設備設施', note: '台東 娜路彎花園酒店 或同級' }
-        ],
-        day2: [
-            { time: '06:30~09:00', activity: '早安台東，享用飯店早餐', note: '預計 09:00 集合發車' },
-            { time: '09:30~12:00', activity: '達魯瑪克部落文化體驗', note: '入境儀式＋過火除穢行程說明＋部落簡介\n• 傳統弓射箭體驗\n• 部落+獵經導覽+樹洞探索\n• DIY 體驗：無塑餐具（竹杯）\n• 大合照（賦歸）' },
-            { time: '12:30~14:00', activity: '午餐時間', note: '' },
-            { time: '14:00~15:00', activity: '原生應用植物園', note: '' },
-            { time: '15:30~17:00', activity: '台東森林公園', note: '含腳踏車' },
-            { time: '17:30~18:30', activity: '晚餐時間', note: '' },
-            { time: '19:00~00:00', activity: '晚安台東', note: '住宿：台東 娜路彎花園酒店 或同級' }
-        ],
-        day3: [
-            { time: '07:00~09:30', activity: '飯店晨喚，享用飯店內自助式早餐', note: '預計 09:30 集合發車' },
-            { time: '09:50~10:30', activity: '台東糖廠文創園區', note: '' },
-            { time: '11:00~12:00', activity: '午餐時間', note: '' },
-            { time: '12:00~17:00', activity: '車程時間，返抵溫暖的家', note: '' }
-        ]
-    },
-    alishan: {
-        title: '阿里山三日遊',
-        period: '115年3-5月 平日',
-        day1: [
-            { time: '07:50~08:00', activity: '指定地點集合報到', note: '預計 08:00 發車' },
-            { time: '08:00~09:00', activity: '車程時間', note: '' },
-            { time: '09:00~09:40', activity: '寧濟御庭園林山水文化園區', note: '' },
-            { time: '10:00~10:40', activity: '雲中街文創聚落', note: '' },
-            { time: '11:00~12:00', activity: '午餐時間', note: '' },
-            { time: '13:00~16:00', activity: '觀音瀑布', note: '需換乘接駁車，週四休園' },
-            { time: '17:00~17:30', activity: '辦理進房入住，小憩片刻', note: '' },
-            { time: '18:00~20:00', activity: '晚餐時間~BBQ 時光', note: '住宿：嘉義 童年渡假村 或同級' },
-            { time: '22:00~00:00', activity: '晚安嘉義', note: '' }
-        ],
-        day2: [
-            { time: '07:00~08:00', activity: '飯店晨喚，享用飯店內自助式早餐', note: '' },
-            { time: '08:00~11:00', activity: '童年渡假村分組闘關活動競賽', note: '• 我們來去抓泥鰍（這個會濕）\n• 或人力拉車\n• 滾鐵輪\n• 划船區\n• 漆彈射擊區（定點每人5發）' },
-            { time: '11:00~12:00', activity: '午餐時間', note: '預計 12:00 集合發車' },
-            { time: '12:00~13:00', activity: '車程時間', note: '' },
-            { time: '13:00~15:00', activity: '隙頂二延平步道觀雲平台', note: '' },
-            { time: '16:30~17:00', activity: '辦理進房入住，小憩片刻', note: '' },
-            { time: '18:00~19:00', activity: '晚餐時間', note: '住宿：嘉義 高山青大飯店 或同級' },
-            { time: '22:00~00:00', activity: '晚安阿里山', note: '' }
-        ],
-        day3: [
-            { time: '03:00~04:00', activity: '飯店晨喚，來去看日出囉', note: '去程搭乘小火車前往祝山站\n回程步行下山' },
-            { time: '07:00~09:00', activity: '早餐時段', note: '預計 10:00 集合發車' },
-            { time: '10:00~11:30', activity: '車程時間', note: '' },
-            { time: '12:00~13:00', activity: '午餐時間', note: '' },
-            { time: '13:30~16:00', activity: '粉牛樂園', note: '' },
-            { time: '16:00~17:30', activity: '車程時間，返抵溫暖的家', note: '' }
-        ]
-    }
-};
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Elements

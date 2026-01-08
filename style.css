@@ -187,34 +187,12 @@ body {
     color: #f472b6;
 }
 
-.card-content p {
-    color: var(--text-dim);
+.card-content p.trip-description {
+    color: var(--text-light);
     line-height: 1.6;
     margin-bottom: 1.5rem;
-}
-
-.preview-files {
-    display: flex;
-    gap: 1rem;
-}
-
-.file-preview {
-    padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    border: 1px solid transparent;
-}
-
-.file-preview:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--glass-border);
-}
-
-.file-preview i {
-    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
 }
 
 .action-area {
