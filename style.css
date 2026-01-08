@@ -785,3 +785,17 @@ body {
     padding-top: 0.5rem;
     border-top: 1px dashed rgba(0, 0, 0, 0.05);
 }
+
+/* Comparison Table Enhanced Details */
+.score-row {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.score-reason {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    text-align: left;
+}
