@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業員工旅遊行程決策系統</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">
+                <i class="fa-solid fa-plane-departure"></i>
+                <span>Antigravity Travel</span>
+            </div>
+            <h1>2026年度 員工自強活動決策中心</h1>
+        </header>
+
+        <main>
+            <!-- Hero Section / Itinerary Selection -->
+            <section id="selection-view" class="view-section active">
+                <h2 class="section-title">請選擇評估中的行程方案</h2>
+                <div class="cards-container">
+                    <!-- Alishan Card -->
+                    <div class="trip-card" data-trip="alishan">
+                        <div class="card-image alishan-bg">
+                            <div class="overlay"></div>
+                            <h3>阿里山森林三日遊</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="tags">
+                                <span class="tag nature">🌲 純粹自然</span>
+                                <span class="tag mountain">⛰️ 高山森呼吸</span>
+                            </div>
+                            <p>體驗雲霧繚繞的神木群，搭乘登山小火車，享受高山茶園的靜謐氛圍。</p>
+                            <div class="preview-files">
+                                <div class="file-preview" onclick="openImage('阿里山行程1.png')"><i
+                                        class="fa-regular fa-image"></i> 行程表 A</div>
+                                <div class="file-preview" onclick="openImage('阿里山行程2.png')"><i
+                                        class="fa-regular fa-image"></i> 行程表 B</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Taitung Card -->
+                    <div class="trip-card" data-trip="taitung">
+                        <div class="card-image taitung-bg">
+                            <div class="overlay"></div>
+                            <h3>台東東海岸三日遊</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="tags">
+                                <span class="tag ocean">🌊 太平洋風光</span>
+                                <span class="tag culture">🚲 慢活體驗</span>
+                            </div>
+                            <p>徜徉在花東縱谷的遼闊，感受太平洋的風，體驗原民文化與無敵海景。</p>
+                            <div class="preview-files">
+                                <div class="file-preview" onclick="openImage('台東三日遊1.png')"><i
+                                        class="fa-regular fa-image"></i> 行程表 A</div>
+                                <div class="file-preview" onclick="openImage('台東三日遊2.png')"><i
+                                        class="fa-regular fa-image"></i> 行程表 B</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-area">
+                    <button id="start-compare-btn" class="cta-button">
+                        <i class="fa-solid fa-scale-balanced"></i> 進入比較模式
+                    </button>
+                    <p class="hint-text">* 基於上傳之行程表進行智能分析</p>
+                </div>
+            </section>
+
+            <!-- Comparison View (Hidden by default) -->
+            <section id="comparison-view" class="view-section hidden">
+                <div class="nav-back" id="back-to-selection">
+                    <i class="fa-solid fa-arrow-left"></i> 返回行程總覽
+                </div>
+
+                <h2 class="section-title">行程深度分析與比較</h2>
+
+                <div class="comparison-grid">
+                    <!-- Chart Section -->
+                    <div class="comapre-chart-container glass-panel">
+                        <h3><i class="fa-solid fa-chart-radar"></i> 綜合指標雷達圖</h3>
+                        <canvas id="radarChart"></canvas>
+                    </div>
+
+                    <!-- Detailed Metrics Table -->
+                    <div class="compare-table-container glass-panel">
+                        <h3><i class="fa-solid fa-list-check"></i> 詳細指標評估</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>評估指標</th>
+                                    <th class="alishan-col">阿里山三日遊</th>
+                                    <th class="taitung-col">台東三日遊</th>
+                                    <th>勝出</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comparison-table-body">
+                                <!-- JS will populate this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analysis Summary -->
+                <div class="analysis-summary glass-panel">
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> 智能總結建議</h3>
+                    <div id="ai-suggestion" class="suggestion-content">
+                        <!-- JS will populate -->
+                    </div>
+                </div>
+
+                <!-- Budget & Itinerary Tabs -->
+                <div class="details-section">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="budget">預算比較</button>
+                        <button class="tab-btn" data-tab="itinerary">詳細行程表</button>
+                    </div>
+
+                    <!-- Budget Comparison -->
+                    <div id="budget-tab" class="tab-content active glass-panel">
+                        <h3><i class="fa-solid fa-coins"></i> 預算規劃與比較 (以18人估算)</h3>
+                        <div class="budget-container">
+                            <table class="budget-table">
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th class="alishan-col">阿里山三日遊</th>
+                                        <th class="taitung-col">台東三日遊</th>
+                                        <th>差異分析</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="budget-table-body">
+                                    <!-- JS populated -->
+                                </tbody>
+                                <tfoot>
+                                    <tr class="total-row">
+                                        <td>總計費用</td>
+                                        <td id="ali-total"></td>
+                                        <td id="tai-total"></td>
+                                        <td id="total-diff"></td>
+                                    </tr>
+                                    <tr class="per-person-row">
+                                        <td>每人預估</td>
+                                        <td id="ali-pp"></td>
+                                        <td id="tai-pp"></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <p class="budget-note">* 實際費用依最終報價單為準，台東部分餐費包含於門票(原生植物園)中。</p>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Itinerary -->
+                    <div id="itinerary-tab" class="tab-content glass-panel">
+                        <h3><i class="fa-solid fa-map-location-dot"></i> 三日行程詳細對照</h3>
+                        <div class="timeline-container">
+                            <div class="timeline-column">
+                                <h4 class="alishan-text">阿里山行程</h4>
+                                <div id="alishan-timeline" class="timeline"></div>
+                            </div>
+                            <div class="timeline-column">
+                                <h4 class="taitung-text">台東行程</h4>
+                                <div id="taitung-timeline" class="timeline"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox for images -->
+        <div id="lightbox" class="lightbox hidden">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-img" src="" alt="行程預覽">
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

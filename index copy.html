@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘉義三日森呼吸｜童趣與雲海的對話</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1549646535-42289c0cb80f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .day-card {
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #cbd5e1;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                margin-left: -1px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-teal-700 tracking-wider">
+                <i class="fa-solid fa-mountain-sun mr-2"></i>嘉義森呼吸
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#day1" class="hover:text-teal-600 transition">第一天</a>
+                <a href="#day2" class="hover:text-teal-600 transition">第二天</a>
+                <a href="#day3" class="hover:text-teal-600 transition">第三天</a>
+                <a href="#info" class="hover:text-teal-600 transition">注意事項</a>
+            </div>
+            <button onclick="window.print()"
+                class="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700 transition text-sm">
+                <i class="fa-solid fa-print mr-1"></i> 列印行程
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center text-white relative">
+        <div class="px-4">
+            <div class="bg-white/10 backdrop-blur-sm p-2 rounded-full inline-block mb-4 border border-white/30">
+                <span class="px-3 py-1 text-sm font-medium tracking-widest">115年 3-5月 平日限定</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+                嘉義三日行程<br>
+                <span class="text-2xl md:text-4xl font-normal mt-2 block text-yellow-300">童趣闖關 ‧ 雲海漫步 ‧ 日出感動</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-90 drop-shadow-md">
+                從平原的熱血闖關與BBQ派對，一路向上穿越隙頂雲海，最終抵達阿里山的森林懷抱。這是一場結合團隊活力與自然療癒的完美旅程。
+            </p>
+            <a href="#day1"
+                class="inline-block bg-yellow-400 text-slate-800 px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg transform hover:scale-105">
+                查看詳細行程 <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Content Container -->
+    <main class="max-w-5xl mx-auto px-4 py-16">
+
+        <!-- Highlights Grid -->
+        <section class="mb-20">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center day-card border-t-4 border-teal-500">
+                    <div
+                        class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-600 text-2xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">團隊熱血凝聚</h3>
+                    <p class="text-gray-500 text-sm">分組闖關、抓泥鰍、漆彈射擊，重拾童年的純真與熱血。</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center day-card border-t-4 border-orange-500">
+                    <div
+                        class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-600 text-2xl">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">歡樂 BBQ 之夜</h3>
+                    <p class="text-gray-500 text-sm">戶外烤肉派對加上 KTV 歡唱，在微風中享受美食與音樂。</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center day-card border-t-4 border-blue-500">
+                    <div
+                        class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">阿里山五奇</h3>
+                    <p class="text-gray-500 text-sm">搭乘小火車迎接日出，漫步神木群棧道，感受雲海與森林的洗禮。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 1 -->
+        <section id="day1" class="mb-24 scroll-mt-24">
+            <div class="flex items-center mb-10">
+                <div class="bg-teal-600 text-white font-bold text-xl px-4 py-2 rounded-lg shadow mr-4">DAY 1</div>
+                <h2 class="text-3xl font-bold text-slate-800">逐鹿傳說 & 渡假村 BBQ 之夜</h2>
+            </div>
+
+            <div class="space-y-6 relative border-l-2 border-teal-200 ml-4 md:ml-6 pl-8 pb-4">
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-teal-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-teal-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>07:30
+                                - 10:00</span>
+                            <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-500">移動</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">集合出發，前往嘉義番路鄉</h3>
+                        <p class="text-gray-600">帶著愉快的心情，開啟三天的旅程。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-teal-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-teal-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>10:00
+                                - 11:30</span>
+                            <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">體驗</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">逐鹿文創園區</h3>
+                        <p class="text-gray-600">體驗鄒族文化特色，近距離與可愛的梅花鹿互動，欣賞原住民歌舞表演。</p>
+                        <div class="mt-3 flex gap-2">
+                            <span class="text-xs border border-gray-300 px-2 py-1 rounded-full">鄒族文化</span>
+                            <span class="text-xs border border-gray-300 px-2 py-1 rounded-full">梅花鹿</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-teal-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-teal-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>13:30
+                                - 15:00</span>
+                            <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">生態</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">童年渡假村：生態探索</h3>
+                        <p class="text-gray-600">先進行較靜態的園區導覽，認識環境，為明天的活動熱身。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-teal-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100 border-l-4 border-l-orange-400">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-teal-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>17:30
+                                - 21:30</span>
+                            <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded font-bold">晚會</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">BBQ 晚餐 & KTV 聯歡晚會</h3>
+                        <p class="text-gray-600">享受戶外烤肉的樂趣，隨後進行 KTV 歡唱，凝聚團隊感情。</p>
+                    </div>
+                </div>
+
+                <!-- Hotel -->
+                <div
+                    class="mt-8 bg-slate-800 text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-lg">
+                    <div class="text-4xl text-yellow-400"><i class="fa-solid fa-bed"></i></div>
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase tracking-wider mb-1">Accommodation</div>
+                        <h3 class="text-2xl font-bold">童年渡假村 <span
+                                class="text-sm font-normal text-slate-300">(或同級)</span></h3>
+                        <p class="text-slate-300 mt-2 text-sm">位於平原區，擁有豐富生態與休閒設施，夜晚寧靜舒適。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Day 2 -->
+        <section id="day2" class="mb-24 scroll-mt-24">
+            <div class="flex items-center mb-10">
+                <div class="bg-blue-600 text-white font-bold text-xl px-4 py-2 rounded-lg shadow mr-4">DAY 2</div>
+                <h2 class="text-3xl font-bold text-slate-800">熱血闖關、隙頂觀雲 & 前進阿里山</h2>
+            </div>
+
+            <div class="space-y-6 relative border-l-2 border-blue-200 ml-4 md:ml-6 pl-8 pb-4">
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-blue-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100 border-l-4 border-l-blue-400">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-blue-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>08:30
+                                - 11:00</span>
+                            <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded font-bold">重點活動</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">分組闖關活動競賽</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li><strong>我們來去抓泥鰍</strong>：準備好濕身，重溫童趣！</li>
+                            <li><strong>漆彈射擊區</strong>：定點射擊，每人5發，考驗準度。</li>
+                            <li><strong>趣味競賽</strong>：人力拉車或滾鐵輪。</li>
+                        </ul>
+                        <div
+                            class="mt-3 bg-yellow-50 text-yellow-800 text-xs px-3 py-2 rounded border border-yellow-200 inline-block">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> 請事先準備一套換洗衣物（包含內衣褲）以便活動後更換。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-blue-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-blue-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>13:30
+                                - 14:10</span>
+                            <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">美景</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">隙頂二延平步道觀雲平台</h3>
+                        <p class="text-gray-600">阿里山公路上的絕美秘境，短暫停留欣賞壯闊的茶園風光，運氣好還能遇見翻騰的雲海。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-blue-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-blue-600 font-bold text-lg"><i class="fa-regular fa-clock mr-2"></i>14:40
+                                - 16:00</span>
+                            <span class="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded">美食</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">奮起湖老街巡禮</h3>
+                        <p class="text-gray-600">山城懷舊時光。必看肖楠母樹林，必吃奮起湖便當、甜甜圈與愛玉。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-blue-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-blue-600 font-bold text-lg"><i
+                                    class="fa-regular fa-clock mr-2"></i>17:30</span>
+                            <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">晚餐</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">阿里山園區晚餐</h3>
+                        <p class="text-gray-600">享用高山風味餐，餐後建議早點休息，迎接明日的日出。</p>
+                    </div>
+                </div>
+
+                <!-- Hotel -->
+                <div
+                    class="mt-8 bg-slate-800 text-white rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-lg">
+                    <div class="text-4xl text-yellow-400"><i class="fa-solid fa-hotel"></i></div>
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase tracking-wider mb-1">Accommodation</div>
+                        <h3 class="text-2xl font-bold">阿里山高山青大飯店 <span
+                                class="text-sm font-normal text-slate-300">(或同級)</span></h3>
+                        <p class="text-slate-300 mt-2 text-sm">位於阿里山森林遊樂區內，地理位置絕佳，方便隔日觀賞日出。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section id="day3" class="mb-24 scroll-mt-24">
+            <div class="flex items-center mb-10">
+                <div class="bg-yellow-500 text-white font-bold text-xl px-4 py-2 rounded-lg shadow mr-4">DAY 3</div>
+                <h2 class="text-3xl font-bold text-slate-800">阿里山日出 & 森林浴</h2>
+            </div>
+
+            <div class="space-y-6 relative border-l-2 border-yellow-200 ml-4 md:ml-6 pl-8 pb-4">
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-yellow-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div
+                        class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100 border-l-4 border-l-yellow-400">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-yellow-600 font-bold text-lg"><i
+                                    class="fa-regular fa-clock mr-2"></i>03:00 - 04:00</span>
+                            <span class="text-xs bg-yellow-100 text-yellow-600 px-2 py-1 rounded font-bold">日出</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">晨喚，搭乘小火車看日出</h3>
+                        <p class="text-gray-600">搭乘著名的祝山線小火車，在觀景台等待第一道曙光乍現的感動時刻。</p>
+                        <p class="text-xs text-gray-400 mt-1">*出發時間依季節日出時間機動調整。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-yellow-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-yellow-600 font-bold text-lg"><i
+                                    class="fa-regular fa-clock mr-2"></i>09:00 - 11:00</span>
+                            <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded">森林浴</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">阿里山森林園區自由活動</h3>
+                        <p class="text-gray-600">早餐後漫步園區，探訪神木群棧道、受鎮宮、姊妹潭，享受高含氧量的芬多精。</p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[41px] bg-yellow-500 w-6 h-6 rounded-full border-4 border-white shadow">
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition border border-slate-100">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                            <span class="text-yellow-600 font-bold text-lg"><i
+                                    class="fa-regular fa-clock mr-2"></i>13:30 - 18:00</span>
+                            <span class="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded">歸賦</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">啟程返家</h3>
+                        <p class="text-gray-600">午餐後帶著滿滿的回憶下山，預計傍晚抵達溫暖的家。</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info" class="bg-teal-50 rounded-2xl p-8 mb-16 border border-teal-100">
+            <h2 class="text-2xl font-bold text-teal-800 mb-6 flex items-center">
+                <i class="fa-solid fa-circle-info mr-3"></i> 行前注意事項
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-bold text-teal-700 mb-2">衣物準備</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-2">
+                        <li><strong>第二天闖關衣物：</strong>會有抓泥鰍活動，請務必準備一套不怕髒的衣物，以及活動後更換的乾淨衣物。</li>
+                        <li><strong>高山保暖：</strong>阿里山早晚溫差極大（約10-15度），請務必攜帶保暖外套、帽子。</li>
+                        <li><strong>好走的鞋：</strong>行程包含步道與森林遊樂區，建議穿著舒適的運動鞋或登山鞋。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-teal-700 mb-2">其他提醒</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-2">
+                        <li><strong>暈車藥：</strong>第二天與第三天山路蜿蜒，會暈車者請於上車前30分鐘服用暈車藥。</li>
+                        <li><strong>個人藥品：</strong>請隨身攜帶個人習慣用藥（感冒、腸胃、過敏等）。</li>
+                        <li><strong>雨具：</strong>山區氣候多變，建議攜帶輕便雨衣或摺疊傘。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-8 text-center">
+        <div class="max-w-5xl mx-auto px-4">
+            <p class="mb-2 text-white font-medium">嘉義三日森呼吸之旅</p>
+            <p class="text-sm">祝您旅途愉快，平安順心</p>
+            <div class="mt-6 border-t border-slate-700 pt-6 text-xs">
+                © 行程規劃參考用
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
