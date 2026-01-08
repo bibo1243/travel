@@ -700,3 +700,84 @@ body {
     font-size: 3rem;
     cursor: pointer;
 }
+
+/* No Image Card Styles (Redesigned Beautiful Layout) */
+.timeline-card.no-image-card {
+    padding: 0;
+    /* Reset for inner padding control */
+}
+
+.timeline-card.no-image-card .card-content-inner {
+    padding: 1.5rem;
+}
+
+.card-body {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+}
+
+.activity-icon-large {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-dim);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover .activity-icon-large {
+    transform: scale(1.1) rotate(5deg);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Colors Based on Day Theme */
+.day-theme-1 .activity-icon-large {
+    color: #0d9488;
+    background: rgba(13, 148, 136, 0.1);
+}
+
+.day-theme-2 .activity-icon-large {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.day-theme-3 .activity-icon-large {
+    color: #ca8a04;
+    background: rgba(202, 138, 4, 0.1);
+}
+
+.activity-details {
+    flex-grow: 1;
+}
+
+.card-title.text-layout {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.activity-tag {
+    font-size: 0.75rem;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Adjust Note Style for this layout */
+.card-note {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.05);
+}

@@ -341,40 +341,49 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Process Note newlines
                     const noteHtml = item.note ? item.note.replace(/\\n/g, '<br>').replace(/\n/g, '<br>') : '';
 
+                    // Determine Icon and Type
+                    let iconClass = 'fa-map-location-dot';
+                    let tagText = '行程';
+
+                    if (item.activity.includes('餐') || item.activity.includes('飯')) {
+                        iconClass = 'fa-utensils';
+                        tagText = '餐飲';
+                    } else if (item.activity.includes('住') || item.activity.includes('店')) {
+                        iconClass = 'fa-bed';
+                        tagText = '住宿';
+                    } else if (item.activity.includes('車') || item.activity.includes('接駁') || item.activity.includes('發車')) {
+                        iconClass = 'fa-bus';
+                        tagText = '交通';
+                    } else if (item.activity.includes('步道') || item.activity.includes('森') || item.activity.includes('園')) {
+                        iconClass = 'fa-tree';
+                        tagText = '景點';
+                    } else if (item.activity.includes('體驗') || item.activity.includes('DIY') || item.activity.includes('闖關')) {
+                        iconClass = 'fa-puzzle-piece';
+                        tagText = '活動';
+                    }
+
                     const cardWrapper = document.createElement('div');
                     cardWrapper.className = 'timeline-card-wrapper';
 
-                    // Identify tags based on keywords
-                    let tagText = '行程';
-                    if (item.activity.includes('餐')) tagText = '餐飲';
-                    else if (item.activity.includes('住')) tagText = '住宿';
-                    else if (item.activity.includes('車')) tagText = '交通';
-
-                    // Generate Image HTML if image exists and not generic placeholder for pure transport/meals if desired
-                    // But here we show all.
-                    const imageHtml = item.image && item.image !== '#' ?
-                        `<div class="timeline-img-container" style="background-image: url('${item.image}');"></div>` : '';
-
-                    // Check if link is available
-                    const titleHtml = item.link && item.link !== '#' ?
-                        `<a href="${item.link}" target="_blank" class="card-title-link">${item.activity} <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>` :
-                        `<span class="card-title-text">${item.activity}</span>`;
-
                     cardWrapper.innerHTML = `
                         <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            ${imageHtml}
+                        <div class="timeline-card no-image-card">
                             <div class="card-content-inner">
                                 <div class="card-header">
                                     <div class="item-time">
                                         <i class="fa-regular fa-clock"></i> ${item.time}
                                     </div>
-                                    <span style="font-size:0.75rem; background:#f1f5f9; color:#64748b; padding:2px 8px; border-radius:4px;">
-                                        ${tagText}
-                                    </span>
+                                    <span class="activity-tag">${tagText}</span>
                                 </div>
-                                <h3 class="card-title">${titleHtml}</h3>
-                                ${noteHtml ? `<div class="card-note">${noteHtml}</div>` : ''}
+                                <div class="card-body">
+                                    <div class="activity-icon-large">
+                                        <i class="fa-solid ${iconClass}"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h3 class="card-title text-layout">${item.activity}</h3>
+                                        ${noteHtml ? `<div class="card-note">${noteHtml}</div>` : ''}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     `;
